@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 
+routes(app);
+
 mongoose.connect(process.env.DB_CONNECTION_STRING);
 
 app.listen(APP_PORT, () =>
