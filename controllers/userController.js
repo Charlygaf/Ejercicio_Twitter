@@ -14,8 +14,18 @@ async function create(req, res) {
   res.render("register");
 }
 
+async function store(req, res) {
+  try {
+    await User.create(req.body);
+    res.redirect("/home");
+  } catch (err) {
+    res.status(404);
+  }
+}
+
 module.exports = {
   index,
   show,
   create,
+  store,
 };

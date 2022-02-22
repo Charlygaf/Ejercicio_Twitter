@@ -12,4 +12,6 @@ const publicRouter = express.Router();
 
 publicRouter.get("/new-user", userController.create);
 
+publicRouter.post("/new-user", userController.store);
+
 module.exports = publicRouter;
