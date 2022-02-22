@@ -13,7 +13,7 @@ module.exports = async () => {
       photoCover: "defaultCoverProfile.png",
       birthDate: faker.date.past(),
       password: "1",
-      userName: "@" + "pepito",
+      userName: "pepito",
     },
   ];
 
@@ -21,12 +21,10 @@ module.exports = async () => {
     users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),
-      photoProfile: "defaultProfile.png",
       email: faker.internet.email(),
-      photoCover: "defaultCoverProfile.png",
       birthDate: faker.date.past(),
       password: "1234",
-      userName: "@" + faker.internet.userName(),
+      userName: faker.internet.userName(),
     });
   }
 
