@@ -10,7 +10,12 @@ async function show(req, res) {
   res.render("profile", { user });
 }
 
+async function create(req, res) {
+  res.render("register");
+}
+
 module.exports = {
   index,
   show,
+  create,
 };

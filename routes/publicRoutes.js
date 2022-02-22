@@ -6,6 +6,10 @@ const publicRouter = express.Router();
 
 /* const userController = require("./userController"); */
 
-publicRouter.get("/", userController.index);
+//publicRouter.get("/", userController.index);
+
+//publicRouter.get("/", userController.index);
+
+publicRouter.get("/new-user", userController.create);
 
 module.exports = publicRouter;
