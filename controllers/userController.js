@@ -23,9 +23,14 @@ async function store(req, res) {
   }
 }
 
+async function logIn(req, res) {
+  res.render("user-home");
+}
+
 module.exports = {
   index,
   show,
   create,
   store,
+  logIn,
 };
