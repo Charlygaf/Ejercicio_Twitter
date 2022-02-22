@@ -17,6 +17,9 @@ app.use(methodOverride("_method"));
 routes(app);
 
 mongoose.connect(process.env.DB_CONNECTION_STRING);
+mongoose.connection
+  .once("open", () => console.log("¡Conexión con la base de datos establecida!"))
+  .on("error", (error) => console.log(error));
 
 dbInitialSetup();
 
