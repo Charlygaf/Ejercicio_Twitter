@@ -1,6 +1,7 @@
 const express = require("express");
-const publicRouter = express.Router();
+
 const userController = require("../controllers/userController");
+const publicRouter = express.Router();
 // Rutas del Públicas:
 
 /* const userController = require("./userController"); */
