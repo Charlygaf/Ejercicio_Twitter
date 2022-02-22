@@ -1,37 +1,35 @@
 const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-const Schema = mongoose.Schema;
+const userSchema = new mongoose.Schema(
+  {
+    firstname: String,
+    lastname: String,
+    userName: String,
+    photoProfile: String,
+    email: String,
+    photoCover: String,
+    description: String,
+    followers: Array,
+    following: Array,
+    birthDate: Date,
+    password: String,
+    twitsCount: { type: Number, default: 0 },
+  },
+  { timestamps: true },
+);
 
-const userSchema = new Schema({
-  firstname: String,
-  lastname: String,
-  photoProfile: String,
-  email: String,
-  photoCover: String,
-  description: String,
-  followers: Array,
-  follows: Array,
-  birthDate: Date,
-  createdAt: Date,
-  password: String,
-  twitsCount: Number,
+userSchema.pre("save", async function (next) {
+  const user = this;
+  if (!user.isModified("password")) return next();
+  user.password = await bcrypt.hash(user.password, 10);
+  next();
 });
+
+userSchema.methods.validatePassword = async function (pass) {
+  return await bcrypt.compare(pass, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
-
-User.create({
-  firstname: "Prueba",
-  lastname: "Prueba",
-  photoProfile: "defaultProfile.png",
-  email: "a@a.com",
-  photoCover: "defaultCoverProfile.png",
-  description: "",
-  followers: [{}],
-  follows: [{}],
-  birthDate: new Date(12 / 3 / 2002),
-  createdAt: new Date(12 / 1 / 2022),
-  password: "1",
-  twitsCount: 0,
-});
 
 module.exports = User;

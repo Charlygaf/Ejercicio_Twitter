@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const express = require("express");
 const routes = require("./routes");
+const dbInitialSetup = require("./dbInitialSetup");
 
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
@@ -16,6 +17,8 @@ app.use(methodOverride("_method"));
 routes(app);
 
 mongoose.connect(process.env.DB_CONNECTION_STRING);
+
+dbInitialSetup();
 
 app.listen(APP_PORT, () =>
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}!\n`),
