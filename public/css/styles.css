@@ -1,3 +1,7 @@
 :root {
   --main-color: #0061f2;
 }
+
+.bg-img {
+  background-image: url("../img/home_twitter_arte.png");
+}
