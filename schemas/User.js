@@ -5,9 +5,9 @@ const userSchema = new mongoose.Schema(
   {
     firstname: String,
     lastname: String,
-    userName: String,
+    userName: { type: String, unique: true },
     photoProfile: { type: String, default: "defaultProfile.png" },
-    email: String,
+    email: { type: String, unique: true },
     photoCover: { type: String, default: "defaultCoverProfile.png" },
     description: String,
     followers: Array,
