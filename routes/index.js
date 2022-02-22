@@ -3,5 +3,5 @@ const userRoutes = require("./userRoutes");
 
 module.exports = (app) => {
   app.use(publicRoutes);
-  app.use(userRoutes);
+  // app.use(userRoutes);
 };
