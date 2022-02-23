@@ -1,5 +1,5 @@
 async function index(req, res) {
-  res.render("portal");
+  res.render("userLogin");
 }
 
 module.exports = {
