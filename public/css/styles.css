@@ -1,6 +1,9 @@
 :root {
   --main-color: #0061f2;
 }
+* {
+  background-color: black;
+}
 
 .bg-img {
   background-image: url("../img/home_twitter_arte.png");
@@ -9,6 +12,6 @@
 .font-register {
   font-family: "Varela Round", sans-serif;
 }
-.sidebar {
+.sidebar-text {
   text-decoration: none;
 }
