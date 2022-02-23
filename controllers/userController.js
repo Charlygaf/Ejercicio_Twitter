@@ -4,7 +4,7 @@ const { format: formatDate } = require("date-fns");
 const { es } = require("date-fns/locale");
 
 async function index(req, res) {
-  res.render("userLogin");
+  res.render("home");
 }
 
 async function show(req, res) {
@@ -14,7 +14,7 @@ async function show(req, res) {
 }
 
 async function logIn(req, res) {
-  res.render("home");
+  res.render("login");
 }
 
 async function create(req, res) {

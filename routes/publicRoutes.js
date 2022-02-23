@@ -1,5 +1,6 @@
 const express = require("express");
 const userController = require("../controllers/userController");
+const publicController = require("../controllers/publicController");
 const publicRouter = express.Router();
 // Rutas del Públicas:
 
@@ -7,10 +8,6 @@ const publicRouter = express.Router();
 
 //publicRouter.get("/", userController.index);
 
-publicRouter.get("/", userController.index);
-
-publicRouter.get("/new-user", userController.create);
-
-publicRouter.post("/new-user", userController.store);
+publicRouter.get("/", publicController.index);
 
 module.exports = publicRouter;

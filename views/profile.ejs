@@ -45,15 +45,15 @@
               <% if (user.biography) { %>
               <p><%=user.biography%></p>
               <% } %>
-              <div class="d-flex">
-                <p class="text-secondary info-profile">
-                  <img src="/img/balloon.svg" alt="Baloon" />Fecha de nacimiento: <%=formatDate(new
-                  Date(user.birthDate), "dd 'de' MMMM 'de' Y" ,{locale:es})%>
-                </p>
-                <p class="text-secondary info-profile ms-4">
-                  Se unió en <%=formatDate(new Date(user.createdAt), "MMMM 'de' Y" ,{locale:es})%>
-                </p>
-              </div>
+              <p class="text-secondary info-profile">
+                <img src="/img/balloon.svg" alt="Baloon" style="width: 0.9rem" /> Fecha de
+                nacimiento: <%=formatDate(new Date(user.birthDate), "dd 'de' MMMM 'de' Y"
+                ,{locale:es})%>
+              </p>
+              <p class="text-secondary info-profile">
+                <img src="/img/calendar.svg" alt="Baloon" style="width: 0.9rem" /> Se unió en
+                <%=formatDate(new Date(user.createdAt), "MMMM 'de' Y" ,{locale:es})%>
+              </p>
             </div>
           </section>
         </div>
