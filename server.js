@@ -20,13 +20,13 @@ const app = express();
     saveUninitialized: false,
   }),
 );
- */
+  */
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 
-passport(app);
+// passport(app);
 
 routes(app);
 
