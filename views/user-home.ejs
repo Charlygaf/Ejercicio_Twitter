@@ -31,37 +31,25 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,300&family=Varela+Round&display=swap"
-      rel="stylesheet"
-    />
-
     <title>Registro</title>
-
-    <link href="/css/styles.css" rel="stylesheet" />
+    <%- include("./partials/headLinks") %>
   </head>
   <body>
+    <!-- NAVBAR -->
+    <%- include ("./partials/navbar") %>
     <div class="row">
-      <div class="col-3">
-        <ul class="sidebar">
-          <li class="sidebar-text"><a class="" href="#">Inicio</a></li>
-          <li><a class="sidebar-text" href="#">Explorar</a></li>
-          <li><a class="sidebar-text" href="#">Notificaciones</a></li>
-          <li><a class="sidebar-text" href="#">Mensajes</a></li>
-          <li><a class="sidebar-text" href="#">Guardados</a></li>
-          <li><a class="sidebar-text" href="#">Listas</a></li>
-          <li><a class="sidebar-text" href="#">Perfil</a></li>
-          <li class="sidebar-text"><a href="#">Más opciones</a></li>
-          <li class="sidebar-text"><a href="/modal">Twittear</a></li>
-        </ul>
+      <div class="col-md-3">
+        <!-- LEFT SIDEBAR -->
+        <%- include ("./partials/leftSidebar") %>
       </div>
-      <div class="col-5">
+      <div class="col-md-5 p-3">
         <h2>Inicio</h2>
       </div>
-      <div class="col-4">
+      <div class="col-md-4">
         <div class="news bg-secondary"><h2>Tendencias para ti</h2></div>
       </div>
     </div>
+
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="/js/app.js"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->

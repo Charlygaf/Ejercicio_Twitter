@@ -16,4 +16,24 @@
 
 .sidebar-text {
   text-decoration: none;
+  color: #e7e7e7;
+  font-family: "PT Serif", serif;
+  font-size: 0.8rem;
+}
+
+.sidebar a {
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.sidebar a:hover {
+  color: #e7e7e7;
+  background-color: rgb(29, 29, 29);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  z-index: 100;
+}
+
+#button-tweet:hover {
+  background-color: rgb(20, 75, 121);
 }
