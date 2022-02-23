@@ -32,7 +32,7 @@
                 src="/img/<%= user.photoProfile %> "
                 alt="Photo Profile"
               />
-              <a class="btn btn-outline-gray rounded-pill height-fit px-3" href="#edit-profile"
+              <a class="btn btn-outline-default rounded-pill height-fit px-3" href="#edit-profile"
                 >Editar perfil</a
               >
             </div>
@@ -59,13 +59,14 @@
               >
             </div>
             <div class="d-flex justify-content-around">
-              <a class="nav-info-profile text-secondary" href="#">Tweets</a>
-              <a class="nav-info-profile text-secondary" href="#">Tweets y respuestas</a>
-              <a class="nav-info-profile text-secondary" href="#">Fotos y videos</a>
-              <a class="nav-info-profile text-secondary" href="#">Me gusta</a>
+              <a class="nav-info-profile" href="#">Tweets</a>
+              <a class="nav-info-profile" href="#">Tweets y respuestas</a>
+              <a class="nav-info-profile" href="#">Fotos y videos</a>
+              <a class="nav-info-profile" href="#">Me gusta</a>
             </div>
           </section>
-          <div class="p-3 border-bottom border-secondary">
+          <!-- tweet -->
+          <div class="px-3 py-2 border-bottom border-secondary">
             <div class="d-flex">
               <a class="w-15" href="#"
                 ><img class="w-100 rounded-circle" src="/img/<%=user.photoProfile%> " alt="Photo"
@@ -83,11 +84,13 @@
                 <!-- body tweet -->
                 <div>content tweet</div>
                 <!-- footer tweet -->
-                <div class="d-flex">
-                  <a href="#">comment</a>
-                  <a href="#">repost</a>
-                  <a href="#">like</a>
-                  <a href="#">share</a>
+                <div class="mt-2 mb-0 mt-3">
+                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-comment"></i></a>
+                  <a class="rounded-circle me-5 btn-action-tweet" href="#"
+                    ><i class="fas fa-retweet"></i></i
+                  ></a>
+                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-heart"></i></a>
+                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-share"></i></a>
                 </div>
               </div>
             </div>
