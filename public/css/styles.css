@@ -14,10 +14,14 @@
   font-family: "Varela Round", sans-serif;
 }
 
+.sidebar {
+  list-style: none;
+}
+
 .sidebar-text {
   text-decoration: none;
   color: #e7e7e7;
-  font-family: "PT Serif", serif;
+  /*  font-family: "PT Serif", serif; */
   font-size: 0.8rem;
 }
 
