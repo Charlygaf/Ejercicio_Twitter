@@ -19,18 +19,37 @@
   </head>
   <body class="bg-black">
     <!-- NAVBAR -->
-    <%- include ("./partials/navbar") %>
-    <div class="row">
-      <div class="col-3">
-        <!-- LEFT SIDEBAR -->
-        <%- include ("./partials/leftSidebar") %>
-      </div>
-
-      <div class="col-5 p-3">
-        <h2>Inicio</h2>
-      </div>
-      <div class="col-4">
-        <div class="news bg-secondary"><h2>Tendencias para ti</h2></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-3">
+          <!-- LEFT SIDEBAR -->
+          <%- include ("./partials/leftSidebar") %>
+        </div>
+        <div class="col-5 border border-secondary border-top-0 border-bottom-0 p-0">
+          <div class="container border border-secondary g-0 pb-2">
+            <form action="" class="border-0 p-2">
+              <textarea
+                class="bg-black text-white border-0"
+                placeholder="¿Qué está pasando?"
+                id="floatingTextarea2"
+                style="height: 100px"
+                maxlength="280"
+              ></textarea>
+              <label class="d-0 d-none" for="floatingTextarea2">Twittea aquí</label>
+            </form>
+            <div class="footer border-top border-secondary d-flex justify-content-end">
+              <button
+                type="button"
+                class="mt-2 btn btn-primary rounded-pill d-flex justify-content-end me-3"
+              >
+                Twittear
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="news bg-secondary"><h2>Tendencias para ti</h2></div>
+        </div>
       </div>
     </div>
 
