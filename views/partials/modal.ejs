@@ -1,0 +1,40 @@
+<div class="modal-dialog border-0">
+  <div style="border-radius: 1rem" class="modal-content border-0 bg-dark">
+    <div class="modal-header border-0 text-white">
+      <button
+        type="button"
+        class="btn-close text-white"
+        data-bs-dismiss="modal"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="modal-body border-0">
+      <form action="" class="border-0">
+        <textarea
+          class="bg-dark text-white border-0 w-100"
+          placeholder="¿Qué está pasando?"
+          id="floatingTextarea2"
+          style="height: 100px"
+          maxlength="280"
+        ></textarea>
+        <label class="d-0" for="floatingTextarea2">Twittea aquí</label>
+      </form>
+      <div class="modal-footer border-top border-secondary">
+        <button type="button" class="btn btn-primary rounded-pill">Twittear</button>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    resize: none; /*remove the resize handle on the bottom right*/
+  }
+</style>
