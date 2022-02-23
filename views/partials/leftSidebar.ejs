@@ -6,7 +6,7 @@
     </li>
     <li class="mt-2">
       <img class="side-bar-icon" src="img/glass.svg" alt="search" /><a class="sidebar-text" href="#"
-        >Explorar</a
+        ><p class="d-none d-lg-block">Explorar</p></a
       >
     </li>
     <li class="mt-2">
@@ -41,11 +41,13 @@
         >Más opciones</a
       >
     </li>
-    <a
+    <button
       id="button-tweet"
       class="btn btn-primary rounded-pill mt-3 p-1 sidebar-text w-100"
-      href="/modal"
-      >Twittear</a
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
     >
+      Twittear
+    </button>
   </ul>
 </section>

@@ -21,17 +21,31 @@
     <!-- NAVBAR -->
     <%- include ("./partials/navbar") %>
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-3">
         <!-- LEFT SIDEBAR -->
         <%- include ("./partials/leftSidebar") %>
       </div>
-      <div class="col-md-5 p-3">
+      <div class="col-5 p-3">
         <h2>Inicio</h2>
       </div>
-      <div class="col-md-4">
+      <div class="col-4">
         <div class="news bg-secondary"><h2>Tendencias para ti</h2></div>
       </div>
     </div>
+
+    <!-- MODAL -->
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+
+    <%- include ("./partials/modal") %> 
 
     <!-- Optional JavaScript; choose one of the two! -->
     <script src="/js/app.js"></script>
