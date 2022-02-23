@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo");
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "HOLAA",
     saveUninitialized: false, // don't create session until something stored
     resave: false, //don't save session if unmodified
     store: MongoStore.create({
