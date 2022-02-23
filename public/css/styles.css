@@ -18,11 +18,17 @@
   list-style: none;
 }
 
+.side-bar-icon {
+  width: 0.8rem;
+  margin-bottom: 0.2rem;
+  margin-right: 0.3rem;
+}
+
 .sidebar-text {
   text-decoration: none;
   color: #e7e7e7;
   /*  font-family: "PT Serif", serif; */
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .sidebar li {
@@ -37,6 +43,10 @@
   padding: 0.5rem;
   border-radius: 2rem;
   z-index: 100;
+}
+
+.sidebar li a:hover {
+  color: white;
 }
 
 #button-tweet:hover {
