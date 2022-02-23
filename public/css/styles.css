@@ -7,12 +7,9 @@
 }
 
 .bg-img {
-  height: max-content;
+  height: 100vh;
   background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png");
   background-color: aqua;
-}
-.logo-portal-arte {
-  margin: auto;
 }
 
 .font-register {
