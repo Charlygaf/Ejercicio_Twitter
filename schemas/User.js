@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const { Schema } = mongoose;
 
 const userSchema = new mongoose.Schema(
   {
@@ -10,11 +11,11 @@ const userSchema = new mongoose.Schema(
     email: { type: String, unique: true },
     photoCover: { type: String, default: "defaultCoverProfile.png" },
     description: String,
-    followers: Array,
-    following: Array,
+    followers: [{ type: Schema.Types.ObjectId }],
+    following: [{ type: Schema.Types.ObjectId }],
     birthDate: Date,
     password: String,
-    tweets: Array,
+    tweets: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],
   },
   { timestamps: true },
 );

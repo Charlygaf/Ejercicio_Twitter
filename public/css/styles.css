@@ -1,7 +1,8 @@
 :root {
   --main-color: #0061f2;
 }
-* {
+
+.bg-black {
   background-color: black;
 }
 
@@ -12,6 +13,7 @@
 .font-register {
   font-family: "Varela Round", sans-serif;
 }
+
 .sidebar-text {
   text-decoration: none;
 }

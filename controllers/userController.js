@@ -1,4 +1,5 @@
 const User = require("../schemas/User");
+const Tweet = require("../schemas/Tweet");
 
 async function index(req, res) {
   res.render("home");
@@ -6,7 +7,7 @@ async function index(req, res) {
 
 async function show(req, res) {
   const { id } = req.params;
-  const user = User.findById(id);
+  const user = User.findById(id).populate();
   res.render("profile", { user });
 }
 
