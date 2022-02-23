@@ -6,7 +6,7 @@ faker.locale = "es";
 module.exports = async () => {
   const users = [
     {
-      firstname: "Prueba",
+      firstname: "Test",
       lastname: "Prueba",
       photoProfile: "defaultProfile.png",
       email: "a@a.com",
@@ -14,6 +14,7 @@ module.exports = async () => {
       birthDate: faker.date.past(),
       password: "1",
       userName: "pepito",
+      biography: "Hola que tal mi nombre es Test te invito a seguirme",
     },
   ];
 

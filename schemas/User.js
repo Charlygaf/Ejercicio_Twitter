@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
     photoProfile: { type: String, default: "defaultProfile.png" },
     email: { type: String, unique: true },
     photoCover: { type: String, default: "defaultCoverProfile.png" },
-    description: String,
+    biography: { type: String, default: "" },
     followers: [{ type: Schema.Types.ObjectId }],
     following: [{ type: Schema.Types.ObjectId }],
     birthDate: Date,

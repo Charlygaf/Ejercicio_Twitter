@@ -1,5 +1,7 @@
 :root {
   --main-color: #0061f2;
+  --bg-hover-soft: rgba(128, 128, 128, 0.185);
+  --letter-color: white;
 }
 
 .bg-black {
@@ -28,7 +30,7 @@
 
 .sidebar-text {
   text-decoration: none;
-  color: #e7e7e7;
+  color: var(--letter-color);
   /*  font-family: "PT Serif", serif; */
   font-size: 1rem;
 }
@@ -36,23 +38,31 @@
 .sidebar li {
   list-style: none;
   padding: 0.5rem;
-  z-index: 10;
 }
 
 .sidebar li:hover {
-  color: #e7e7e7;
+  color: var(--letter-color);
   background-color: rgb(29, 29, 29);
   padding: 0.5rem;
   border-radius: 2rem;
-  z-index: 100;
 }
 
 .sidebar li a:hover {
-  color: white;
+  color: var(--letter-color);
 }
 
 #button-tweet:hover {
   background-color: rgb(20, 75, 121);
+}
+
+.btn-outline-gray {
+  color: var(--letter-color);
+  border: 1px solid gray;
+}
+
+.btn-outline-gray:hover {
+  color: var(--letter-color);
+  background-color: var(--bg-gray-soft);
 }
 
 .position-relative {
@@ -79,5 +89,46 @@
 }
 
 .info-profile {
+  font-size: 0.9rem;
+}
+
+.info-follow {
+  font-size: 0.9rem;
+}
+
+.info-follow span {
+  font-weight: bold;
+  color: var(--letter-color);
+}
+
+.nav-info-profile {
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+}
+
+.nav-info-profile:hover {
+  color: var(--letter-color);
+  background-color: var(--bg-gray-soft);
+}
+
+.w-15 {
+  width: 3.2rem;
+}
+
+.link-profile-tweet {
+  text-decoration: none;
+  color: var(--letter-color);
+}
+
+.link-profile-tweet:hover {
+  color: var(--letter-color);
+}
+
+.link-profile-tweet:hover .underline {
+  text-decoration: underline;
+}
+
+.date-tweet {
+  text-decoration: none;
   font-size: 0.9rem;
 }
