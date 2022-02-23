@@ -37,3 +37,30 @@
 #button-tweet:hover {
   background-color: rgb(20, 75, 121);
 }
+
+.position-relative {
+  position: relative;
+}
+
+.ph-profile {
+  border: 0.3rem solid black;
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  box-sizing: border-box;
+}
+
+.ph-cover {
+  width: 100%;
+  height: 12rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.height-fit {
+  height: fit-content;
+}
+
+.info-profile {
+  font-size: 0.9rem;
+}
