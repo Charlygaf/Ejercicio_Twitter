@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo");
 
 app.use(
   session({
-    secret: "holaaa",
+    secret: process.env.SESSION_SECRET,
     saveUninitialized: false, // don't create session until something stored
     resave: false, //don't save session if unmodified
     store: MongoStore.create({
@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 app.use(methodOverride("_method"));
 
-// passport(app);
+passport(app);
 
 routes(app);
 

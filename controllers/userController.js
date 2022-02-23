@@ -12,7 +12,6 @@ async function show(req, res) {
   const user = await User.findOne({ userName: `${username}` });
   const users = await User.find({});
   res.render("profile", { user, formatDate, es, users });
-  console.log(users);
 }
 
 async function logIn(req, res) {
