@@ -76,6 +76,9 @@
   left: 1rem;
   box-sizing: border-box;
 }
+.ph-friend-suggestions {
+  border: 0.3rem solid black;
+}
 
 .ph-cover {
   width: 100%;

@@ -10,7 +10,9 @@ async function index(req, res) {
 async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
-  res.render("profile", { user, formatDate, es });
+  const users = await User.find({});
+  res.render("profile", { user, formatDate, es, users });
+  console.log(users);
 }
 
 async function logIn(req, res) {
@@ -19,6 +21,15 @@ async function logIn(req, res) {
 
 async function create(req, res) {
   res.render("register");
+}
+
+async function following(req, res) {
+  try {
+    await User.create(req.body);
+    res.redirect("/");
+  } catch (err) {
+    res.status(404);
+  }
 }
 
 async function store(req, res) {
@@ -36,4 +47,5 @@ module.exports = {
   create,
   store,
   logIn,
+  following,
 };

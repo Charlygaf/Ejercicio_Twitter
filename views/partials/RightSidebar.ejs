@@ -1,60 +1,34 @@
-<section style="position: fixed; right: 0px" class="">
-  <ul class="sidebar">
-    <li class="mt-2">
-      <a class="sidebar-text" href="#">
-        <img class="side-bar-icon d-inline" src="img/home.svg" alt="home" />
-        <p class="d-none d-lg-inline">Inicio</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#">
-        <img class="side-bar-icon d-inline" src="img/glass.svg" alt="search" />
-        <p class="d-none d-lg-inline">Explorar</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#"
-        ><img class="side-bar-icon d-inline" src="img/bell.svg" alt="notifications" />
-        <p class="d-none d-lg-inline">Notificaciones</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#"
-        ><img class="side-bar-icon d-inline" src="img/mail.svg" alt="message" />
-        <p class="d-none d-lg-inline">Mensajes</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#">
-        <img class="side-bar-icon d-inline" src="img/pin.svg" alt="save" />
-        <p class="d-none d-lg-inline">Guardados</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#">
-        <img class="side-bar-icon d-inline" src="img/note.svg" alt="lists" />
-        <p class="d-none d-lg-inline">Listas</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#">
-        <img class="side-bar-icon d-inline" src="img/user.svg" alt="profile" />
-        <p class="d-none d-lg-inline">Perfil</p></a
-      >
-    </li>
-    <li class="mt-2">
-      <a class="sidebar-text" href="#"
-        ><img class="side-bar-icon d-inline" src="img/more.svg" alt="more" />
-        <p class="d-none d-lg-inline">Más opciones</p>
-      </a>
-    </li>
-    <button
-      id="button-tweet"
-      class="btn btn-primary rounded-pill mt-3 p-1 sidebar-text w-100 d-none d-lg-inline"
-      data-bs-toggle="modal"
-      data-bs-target="#staticBackdrop"
-    >
-      <span class="d-none d-lg-inline">Twittear</span>
-    </button>
-  </ul>
+<section class="">
+  <nav class="navbar navbar-expand-lg text-white navbar-light bg-black">
+    <div class="form">
+      <i class="fa fa-search"></i>
+      <input type="text" class="form-control form-input" placeholder="Search anything..." />
+      <span class="left-pan"><i class="fa fa-microphone"></i></span>
+    </div>
+  </nav>
+  <div class="friend-suggestions mt-2">
+    <h2>You might like</h2>
+    <% for (const user of users.slice(0,3)) { %>
+    <div class="row">
+      <div class="col-2">
+        <img
+          class="rounded-circle w-25 .ph-friend-suggestions"
+          src="/img/<%= user.photoProfile %> "
+          alt="Photo Profile"
+        />
+      </div>
+      <div class="col-6">
+        <div class="col-12">
+          <h4><%= user.firstname %> <%= user.lastname %></h4>
+        </div>
+        <div class="col-12"><%= user.username %></div>
+      </div>
+      <div class="col-4">
+        <form action="" method="post">
+          <button name="foo" value="upvote">Upvote</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </section>
