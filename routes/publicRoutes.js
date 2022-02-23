@@ -9,5 +9,6 @@ const publicRouter = express.Router();
 //publicRouter.get("/", userController.index);
 
 publicRouter.get("/", publicController.index);
+publicRouter.get("/register", publicController.create);
 
 module.exports = publicRouter;
