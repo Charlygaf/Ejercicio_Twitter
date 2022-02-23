@@ -7,8 +7,12 @@
 }
 
 .bg-img {
-  background-image: url("../img/home_twitter_arte.png");
+  height: max-content;
+  background-image: url("https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png");
   background-color: aqua;
+}
+.logo-portal-arte {
+  margin: auto;
 }
 
 .font-register {

@@ -17,14 +17,14 @@
   </head>
   <body style="background-color: black">
     <div class="row">
-      <div class="col-md-6">
-        <img width="100%" src="img/home_twitter_arte.png" alt="Twitter_arte" />
+      <div class="col-md-6 d-none d-lg-block bg-img p-5">
+        <img height="200rem" src="img/twitter-navbar.svg" alt="logo" />
       </div>
 
-      <div class="col-md-6 m-auto">
+      <div class="col-md-6 m-auto p-5">
         <div class="row">
           <div class="col-md-12">
-            <img width="19rem" src="img/twitter-navbar.svg" alt="logo" />
+            <img width="30 rem" src="img/twitter-navbar.svg" alt="logo" />
           </div>
           <div class="col-md-12">
             <h1 class="text-light">It's Happening now</h1>
@@ -33,7 +33,7 @@
             <h3 class="text-light">Join twitter today</h3>
           </div>
         </div>
-        <header style="min-height: 100vh">
+        <header>
           <div class="container m-0 p-0 text-light">
             <form
               class="text-start text-light"
@@ -45,9 +45,13 @@
               <input class="form-control" name="email" type="email" />
               <label for="">Contraseña</label>
               <input class="form-control" name="password" type="password" />
-              <input class="btn btn-success my-5" type="submit" value="Register" />
+              <input class="btn btn-primary my-5" type="submit" value="Sign in" />
             </form>
           </div>
+
+          <a href="/views/register.ejs">
+            <button type="button" class="btn btn-outline-primary">Register</button></a
+          >
         </header>
       </div>
     </div>
