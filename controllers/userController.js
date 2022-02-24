@@ -60,7 +60,7 @@ module.exports = {
   index,
   show,
   create,
-  store,
   following,
+  store,
   logout,
 };
