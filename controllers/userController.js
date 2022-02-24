@@ -3,6 +3,7 @@ const Tweet = require("../schemas/Tweet");
 
 async function index(req, res) {
   const tweets = await Tweet.find().populate("user");
+
   res.render("home", { tweets });
 }
 
@@ -11,6 +12,7 @@ async function show(req, res) {
   const user = await User.findOne({ userName: `${username}` });
   const tweets = await Tweet.find().where({ user: user }).populate("user").limit(20);
   const users = await User.find();
+
   res.render("profile", { user, users, tweets });
 }
 
@@ -29,12 +31,7 @@ async function store(req, res) {
 }
 
 async function create(req, res) {
-  if (!req.user) {
-    res.render("register");
-  } else {
-    res.redirect("/");
-    console.log("el usuario ya esta registrado");
-  }
+  res.render("register");
 }
 
 async function following(req, res) {
