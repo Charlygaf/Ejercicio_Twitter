@@ -5,7 +5,7 @@ async function storeTweet(req, res) {
   try {
     const tweet = await Tweet.create({
       content: req.body.content,
-      user: req.user._id,
+      user: req.user,
     });
     await User.findByIdAndUpdate(req.user.id, { $push: { tweets: tweet } });
     res.redirect("/home");
