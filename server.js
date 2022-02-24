@@ -14,7 +14,7 @@ const MongoStore = require("connect-mongo");
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: `${process.env.SESSION_SECRET}`,
     saveUninitialized: false, // don't create session until something stored
     resave: false, //don't save session if unmodified
     store: MongoStore.create({
@@ -37,7 +37,7 @@ mongoose.connection
   .once("open", () => console.log("¡Conexión con la base de datos establecida!"))
   .on("error", (error) => console.log(error));
 
-// dbInitialSetup();
+//dbInitialSetup();
 
 app.listen(APP_PORT, () =>
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}!\n`),

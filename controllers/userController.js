@@ -14,6 +14,20 @@ async function show(req, res) {
   res.render("profile", { user, formatDate, es, users });
 }
 
+async function store(req, res) {
+  try {
+    const user = await User.create(req.body);
+    req.login(user, (error) => {
+      if (error) {
+        res.status(500).send("Lo sentimos, error inesperado.");
+      }
+      res.redirect("/");
+    });
+  } catch (error) {
+    res.status(400).render("portal");
+  }
+}
+
 async function logIn(req, res) {
   res.render("login");
 }
@@ -23,15 +37,6 @@ async function create(req, res) {
 }
 
 async function following(req, res) {
-  try {
-    await User.create(req.body);
-    res.redirect("/");
-  } catch (err) {
-    res.status(404);
-  }
-}
-
-async function store(req, res) {
   try {
     await User.create(req.body);
     res.redirect("/");

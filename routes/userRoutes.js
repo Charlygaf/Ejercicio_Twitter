@@ -1,15 +1,22 @@
 const express = require("express");
-
 const userController = require("../controllers/userController");
 const userRouter = express.Router();
+const passport = require("passport");
 
-userRouter.get("/home", userController.index);
+userRouter.get("/", userController.index);
+userRouter.post("/home", userController.logIn);
 
-userRouter.post("/login", userController.logIn);
-
-userRouter.get("/registro", userController.create);
-userRouter.post("/registro", userController.store);
 userRouter.get("/:username", userController.show);
+
 userRouter.post("/:username", userController.following);
+
+/* userRouter.post(
+  "/home",
+  passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/portal",
+    failureFlash: true,
+  }),
+); */
 
 module.exports = userRouter;
