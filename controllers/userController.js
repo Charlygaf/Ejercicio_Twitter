@@ -29,7 +29,12 @@ async function store(req, res) {
 }
 
 async function create(req, res) {
-  res.render("register");
+  if (!req.user) {
+    res.render("register");
+  } else {
+    res.redirect("/");
+    console.log("el usuario ya esta registrado");
+  }
 }
 
 async function following(req, res) {
