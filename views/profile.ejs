@@ -66,35 +66,7 @@
             </div>
           </section>
           <!-- tweet -->
-          <div class="px-3 py-2 border-bottom border-secondary">
-            <div class="d-flex">
-              <a class="w-15" href="#"
-                ><img class="w-100 rounded-circle" src="/img/<%=user.photoProfile%> " alt="Photo"
-              /></a>
-              <div class="ms-3 pt-1">
-                <div>
-                  <a class="link-profile-tweet" href="#">
-                    <span class="underline">name</span>
-                    <span class="text-secondary">@username · </span></a
-                  >
-                  <a class="date-tweet text-secondary" href="#"
-                    ><%=formatDate(new Date(user.createdAt), "d MMM'.' Y" ,{locale:es})%></a
-                  >
-                </div>
-                <!-- body tweet -->
-                <div>content tweet</div>
-                <!-- footer tweet -->
-                <div class="mt-2 mb-0 mt-3">
-                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-comment"></i></a>
-                  <a class="rounded-circle me-5 btn-action-tweet" href="#"
-                    ><i class="fas fa-retweet"></i></i
-                  ></a>
-                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-heart"></i></a>
-                  <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-share"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <%-include("partials/tweet")%>
         </div>
         <div class="col-3"><%- include ("partials/RightSidebar") %></div>
       </div>
