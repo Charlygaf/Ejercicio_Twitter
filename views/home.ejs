@@ -23,10 +23,12 @@
       <div class="row">
         <div class="col-3">
           <!-- LEFT SIDEBAR -->
-          <%- include ("./partials/leftSidebar") %>
+          <%- include("partials/leftSidebar") %>
         </div>
-        <div class="col-5 border border-secondary border-top-0 border-bottom-0 p-0">
-          <div class="container border border-secondary g-0 pb-2">
+        <div
+          class="col-5 border border-secondary border-top-0 border-bottom-0 p-0 height-all-views"
+        >
+          <div class="container border-bottom border-secondary g-0 pb-2">
             <form action="" class="border-0 p-2">
               <textarea
                 class="bg-black text-white border-0"
@@ -37,6 +39,7 @@
               ></textarea>
               <label class="d-0 d-none" for="floatingTextarea2">Twittea aquí</label>
             </form>
+
             <div class="footer border-top border-secondary d-flex justify-content-end">
               <button
                 type="button"
@@ -46,6 +49,7 @@
               </button>
             </div>
           </div>
+          <%- include("partials/tweet") %>
         </div>
         <div class="col-4">
           <div class="news bg-secondary"><h2>Tendencias para ti</h2></div>
@@ -53,7 +57,6 @@
       </div>
     </div>
 
-    <!-- MODAL -->
     <!-- Modal -->
     <div
       class="modal fade"

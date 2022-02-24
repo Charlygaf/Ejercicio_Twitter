@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema(
     biography: { type: String, default: "" },
     followers: [{ type: Schema.Types.ObjectId }],
     following: [{ type: Schema.Types.ObjectId }],
+    //likes: [{type: Schema.Types.ObjectId, ref: "Tweet" }],
     birthDate: Date,
     password: String,
     tweets: [{ type: Schema.Types.ObjectId, ref: "Tweet" }],

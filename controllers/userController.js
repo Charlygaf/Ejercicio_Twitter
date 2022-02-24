@@ -1,7 +1,5 @@
 const User = require("../schemas/User");
 const Tweet = require("../schemas/Tweet");
-const { format: formatDate } = require("date-fns");
-const { es } = require("date-fns/locale");
 
 async function index(req, res) {
   res.render("home");
@@ -10,9 +8,8 @@ async function index(req, res) {
 async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
-  const users = await User.find();
-
-  res.render("profile", { user, formatDate, es, users });
+  const users = await User.find({});
+  res.render("profile", { user, users });
 }
 
 async function store(req, res) {
@@ -44,18 +41,14 @@ async function following(req, res) {
   console.log(req.params);
 }
 
-//   try {
-//     await User.create(req.body);
-//     res.redirect("/");
-//   } catch (err) {
-//     res.status(404);
-//   }
-// }
-// Assuming, var friend = { firstName: 'Harry', lastName: 'Potter' };
-
-// Update the model in-memory, and save (plain javascript array.push):
-// person.friends.push(friend);
-// person.save(done);
+async function logout(req, res) {
+  try {
+    req.logout();
+    res.redirect("/");
+  } catch (error) {
+    res.status(400);
+  }
+}
 
 module.exports = {
   index,
@@ -63,4 +56,5 @@ module.exports = {
   create,
   store,
   following,
+  logout,
 };
