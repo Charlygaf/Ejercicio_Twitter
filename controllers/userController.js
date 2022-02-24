@@ -3,8 +3,9 @@ const Tweet = require("../schemas/Tweet");
 
 async function index(req, res) {
   const tweets = await Tweet.find().populate("user");
+  const users = await User.find();
 
-  res.render("home", { tweets });
+  res.render("home", { users, tweets });
 }
 
 async function show(req, res) {
