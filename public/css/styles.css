@@ -3,10 +3,12 @@
   --bg-hover-soft: hsla(0, 0%, 50%, 0.205);
   --letter-color: white;
   --color-brightness-dropdown: rgba(255, 255, 255, 0.25);
+  --color-dark: black;
+  --color-nav-blur: rgba(0, 0, 0, 0.7);
 }
 
 .bg-black {
-  background-color: black;
+  background-color: var(--color-dark);
 }
 
 .bg-img {
@@ -96,14 +98,14 @@
 }
 
 .ph-profile {
-  border: 0.3rem solid black;
+  border: 0.3rem solid var(--color-dark);
   position: absolute;
   top: -100%;
   left: 1rem;
   box-sizing: border-box;
 }
 .ph-friend-suggestions {
-  border: 0.3rem solid black;
+  border: 0.3rem solid var(--color-dark);
 }
 
 .ph-cover {
@@ -184,4 +186,9 @@ textarea {
 
 .btn-action-tweet {
   color: gray;
+}
+
+.bg-nav {
+  background-color: var(--color-nav-blur);
+  backdrop-filter: blur(10px);
 }

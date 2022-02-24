@@ -24,6 +24,17 @@
           <%- include ("./partials/leftSidebar") %>
         </div>
         <div class="col-5 border border-secondary border-top-0 border-bottom-0 p-0">
+          <div class="ps-3 bg-nav sticky-top">
+            <div class="d-flex justify-content-start align-items-center">
+              <a class="text-decoration-none text-white me-3" href="/home"
+                ><i class="fas fa-arrow-left"></i
+              ></a>
+              <div class="ps-4 py-1">
+                <h1 class="fs-5 m-0"><%=user.firstname%> <%=user.lastname%></h1>
+                <span class="text-secondary info-profile"><%=user.tweets.length%> Tweets</span>
+              </div>
+            </div>
+          </div>
           <section class="border-bottom border-secondary">
             <div class="ph-cover" style="background-image: url(/img/<%=user.photoCover%>)"></div>
             <div class="d-flex justify-content-end p-3 position-relative">

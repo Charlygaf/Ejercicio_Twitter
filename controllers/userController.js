@@ -51,6 +51,6 @@ module.exports = {
   show,
   create,
   store,
-  following,
+  // following,
   logout,
 };
