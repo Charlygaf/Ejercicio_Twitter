@@ -37,6 +37,16 @@ async function create(req, res) {
   }
 }
 
+async function following(req, res) {
+  const newFollow = await User.findByIdAndUpdate(req.user.id, {
+    $push: { following: req.body.objectId },
+  });
+
+  const newFollower = await User.findByIdAndUpdate(req.body.objectId, {
+    $push: { followers: req.user.id },
+  });
+}
+
 async function logout(req, res) {
   try {
     req.logout();

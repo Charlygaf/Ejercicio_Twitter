@@ -13,8 +13,8 @@
     <div class="row">
       <div class="col m-0 p-0">
         <ul class="sidebar mx-1 my-0 p-0">
-          <form class="d-none d-lg-inline me-0" action="/:username" method="POST">
-            <% for (const usuario of users.slice(0,3)) { %>
+          <% for (const usuario of users.slice(0,3)) { %>
+          <form class="d-none d-lg-inline me-0" action="/following" method="POST">
             <li class="d-flex justify-content-between align-items-center">
               <a class="sidebar-text" href="/<%= usuario.userName %>">
                 <img
@@ -24,7 +24,7 @@
                 />
                 <p class="d-none d-lg-inline text-light">@<%= usuario.userName %></p>
               </a>
-              <input type="hidden" name="objectId" value="<%= usuario._id %>" />
+              <input type="hidden" name="objectId" value="<%= usuario.id %>" />
 
               <button type="submit" class="btn btn-primary rounded-pill font-register">
                 follow

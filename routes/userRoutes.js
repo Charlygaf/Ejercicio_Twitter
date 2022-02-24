@@ -17,7 +17,7 @@ userRouter.post(
 
 userRouter.get("/:username", authenticateUser, userController.show);
 
-userRouter.post("/:username", authenticateUser, userController.following);
+userRouter.post("/following", authenticateUser, userController.following);
 
 userRouter.delete("/logout", userController.logout);
 
