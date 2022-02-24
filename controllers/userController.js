@@ -28,10 +28,6 @@ async function store(req, res) {
   }
 }
 
-async function logIn(req, res) {
-  res.render("login");
-}
-
 async function create(req, res) {
   res.render("register");
 }
@@ -50,6 +46,5 @@ module.exports = {
   show,
   create,
   store,
-  logIn,
   following,
 };

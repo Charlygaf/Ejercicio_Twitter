@@ -2,6 +2,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./schemas/User");
 const bcryptjs = require("bcryptjs");
+const { session } = require("passport");
 
 module.exports = (app) => {
   app.use(passport.session());
@@ -21,7 +22,6 @@ module.exports = (app) => {
           if (!checkPassword) {
             return cb(null, false, { message: "Incorrect email or password." });
           }
-
           return cb(null, user);
         } catch (error) {
           return cb(error);
