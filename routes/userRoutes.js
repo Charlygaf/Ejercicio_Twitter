@@ -16,7 +16,7 @@ userRouter.post(
   }),
 );
 
-userRouter.post("/new-tweet", tweetController.storeTweet);
+userRouter.post("/new-tweet", authenticateUser, tweetController.storeTweet);
 
 userRouter.get("/:username", authenticateUser, userController.show);
 

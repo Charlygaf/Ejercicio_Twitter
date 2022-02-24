@@ -1,17 +1,18 @@
 const Tweet = require("../schemas/Tweet");
+const User = require("../schemas/User");
 
 async function storeTweet(req, res) {
   try {
-    await Tweet.create({
+    const tweet = await Tweet.create({
       content: req.body.content,
       user: req.user._id,
     });
+    await User.findByIdAndUpdate(req.user.id, { $push: { tweets: tweet } });
     res.redirect("/home");
   } catch (error) {
     console.log("ERROR:", error.message);
   }
 }
-
 async function deleteTweet(req, res) {
   const { id } = req.params;
   await User.findByIdAndRemove(id);
