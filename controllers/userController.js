@@ -10,7 +10,8 @@ async function index(req, res) {
 async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
-  const users = await User.find({});
+  const users = await User.find();
+
   res.render("profile", { user, formatDate, es, users });
 }
 
@@ -38,13 +39,23 @@ async function create(req, res) {
 }
 
 async function following(req, res) {
-  try {
-    await User.create(req.body);
-    res.redirect("/");
-  } catch (err) {
-    res.status(404);
-  }
+  console.log(req.user);
+  console.log(req.body);
+  console.log(req.params);
 }
+
+//   try {
+//     await User.create(req.body);
+//     res.redirect("/");
+//   } catch (err) {
+//     res.status(404);
+//   }
+// }
+// Assuming, var friend = { firstName: 'Harry', lastName: 'Potter' };
+
+// Update the model in-memory, and save (plain javascript array.push):
+// person.friends.push(friend);
+// person.save(done);
 
 module.exports = {
   index,

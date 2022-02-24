@@ -1,34 +1,37 @@
 <section class="">
-  <nav class="navbar navbar-expand-lg text-white navbar-light bg-black">
-    <div class="form">
-      <i class="fa fa-search"></i>
-      <input type="text" class="form-control form-input" placeholder="Search anything..." />
-      <span class="left-pan"><i class="fa fa-microphone"></i></span>
-    </div>
-  </nav>
-  <div class="friend-suggestions mt-2">
-    <h2>You might like</h2>
-    <% for (const user of users.slice(0,3)) { %>
+  <!-- sticky Search Nav -->
+  <div class="row bg-black sticky-top">
+    <form class="d-flex justify-content-between">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+      <button class="btn btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
+  <!-- Friend suggestions -->
+  <div class="friend-suggestions bg-dark p-3 mt-5 rounded">
+    <h4 class="text-light">You might like</h4>
+
     <div class="row">
-      <div class="col-2">
-        <img
-          class="rounded-circle w-25 .ph-friend-suggestions"
-          src="/img/<%= user.photoProfile %> "
-          alt="Photo Profile"
-        />
-      </div>
-      <div class="col-6">
-        <div class="col-12">
-          <h4><%= user.firstname %> <%= user.lastname %></h4>
-        </div>
-        <div class="col-12"><%= user.username %></div>
-      </div>
-      <div class="col-4">
-        <form action="" method="post">
-          <button name="foo" value="upvote">Upvote</button>
-        </form>
+      <div class="col m-0 p-0">
+        <ul class="sidebar mx-1 my-0 p-0">
+          <% for (const usuario of users.slice(0,3)) { %>
+          <li class="d-flex justify-content-between align-items-center">
+            <a class="sidebar-text" href="/<%= usuario.userName %>">
+              <img
+                class="rounded-circle w-15 side-bar-icon d-inline m-0"
+                src="/img/<%= usuario.photoProfile %> "
+                alt="Photo Profile"
+              />
+              <p class="d-none d-lg-inline text-light">@<%= usuario.userName %></p>
+            </a>
+            <form class="d-none d-lg-inline me-0" action="/:username" method="post">
+              <button type="submit" class="btn btn-primary rounded-pill font-register">
+                follow
+              </button>
+            </form>
+          </li>
+          <% } %>
+        </ul>
       </div>
     </div>
-    <% } %>
   </div>
 </section>
