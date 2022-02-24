@@ -1,29 +1,49 @@
-<div class="px-3 py-2 border-bottom border-secondary">
-  <div class="d-flex">
-    <a class="w-15" href="/home"
-      ><img class="w-100 rounded-circle" src="/img/<%=currentUser.photoProfile%> " alt="Photo"
+<% for( const tweet of tweets ) { %>
+<div class="border-bottom border-secondary position-relative">
+  <div class="d-flex p-3">
+    <% if (currentUser.userName === tweet.user.userName) { %>
+    <div class="dropstart btn-options-tweet">
+      <a
+        class="text-white"
+        href="#"
+        id="options-tw"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fas fa-ellipsis-h"></i>
+      </a>
+      <div class="dropdown-menu bg-black tw-dropdown p-0" aria-labelledby="options-tw">
+        <form action="/delete" method="POST">
+          <button class="dropdown-item text-danger dropdown-options-tweet">
+            <i class="fas fa-trash-alt me-3"></i>Eliminar
+          </button>
+        </form>
+      </div>
+    </div>
+    <% }%>
+    <a class="w-15" href="/<%= tweet.user.userName %>"
+      ><img class="w-100 rounded-circle" src="/img/<%=tweet.user.photoProfile%> " alt="Photo"
     /></a>
-    <div class="ms-3 pt-1">
-      <div>
+    <div class="ms-2 pe-3 w-100">
+      <div class="mb-2">
         <a class="link-profile-tweet" href="#">
-          <span class="underline">name</span>
-          <span class="text-secondary">@username · </span></a
+          <span class="underline"><%=tweet.user.firstname%> <%= tweet.user.lastname %> </span>
+          <span class="text-secondary">@<%=tweet.user.userName%> · </span></a
         >
         <a class="date-tweet text-secondary" href="#"
           ><%=formatDate(new Date(currentUser.createdAt), "d MMM'.' Y" ,{locale:es})%></a
         >
       </div>
       <!-- body tweet -->
-      <div>content tweet</div>
+      <div class="fw-lighter"><%=tweet.content%></div>
       <!-- footer tweet -->
       <div class="mt-2 mb-0 mt-3">
         <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-comment"></i></a>
-        <a class="rounded-circle me-5 btn-action-tweet" href="#"
-          ><i class="fas fa-retweet"></i></i
-        ></a>
+        <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-retweet"></i></a>
         <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-heart"></i></a>
         <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-share"></i></a>
       </div>
     </div>
   </div>
 </div>
+<% } %>
