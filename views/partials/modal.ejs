@@ -9,19 +9,20 @@
       ></button>
     </div>
     <div class="modal-body border-0">
-      <form action="" class="border-0">
+      <form action="/new-tweet" method="POST" class="border-0">
         <textarea
           class="bg-dark text-white border-0 w-100"
           placeholder="¿Qué está pasando?"
-          id="floatingTextarea2"
+          id="content"
+          name="content"
           style="height: 100px"
           maxlength="280"
         ></textarea>
         <label class="d-0" for="floatingTextarea2">Twittea aquí</label>
+        <div class="modal-footer border-top">
+          <button type="submit" class="btn btn-primary rounded-pill">Twittear</button>
+        </div>
       </form>
-      <div class="modal-footer border-top">
-        <button type="button" class="btn btn-primary rounded-pill">Twittear</button>
-      </div>
     </div>
   </div>
 </div>

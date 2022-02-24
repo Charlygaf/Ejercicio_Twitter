@@ -26,25 +26,29 @@
           <%- include("partials/leftSidebar") %>
         </div>
         <div class="col-5 border border-secondary border-top-0 border-bottom-0 p-0">
+          <div class="ps-3 py-2 bg-nav sticky-top">
+                <h1 class="fs-4">Home</h1>
+          </div>
           <div class="container border-bottom border-secondary g-0 pb-2">
-            <form action="" class="border-0 p-2">
+            <form action="/new-tweet" class="border-0 p-2">
               <textarea
                 class="bg-black text-white border-0"
-                placeholder="¿Qué está pasando?"
-                id="floatingTextarea2"
+                placeholder="¿Qué está pasando?
+                name="content"
                 style="height: 100px"
                 maxlength="280"
               ></textarea>
               <label class="d-0 d-none" for="floatingTextarea2">Twittea aquí</label>
-            </form>
+            
 
             <div class="footer border-top border-secondary d-flex justify-content-end">
               <button
-                type="button"
+                type="submit"
                 class="mt-2 btn btn-primary rounded-pill d-flex justify-content-end me-3"
               >
                 Twittear
               </button>
+            </form>
             </div>
           </div>
           <%- include("partials/tweet") %>

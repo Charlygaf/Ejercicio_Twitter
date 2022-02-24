@@ -3,6 +3,7 @@ const userController = require("../controllers/userController");
 const userRouter = express.Router();
 const passport = require("passport");
 const authenticateUser = require("../middleware/authenticateUser");
+const tweetController = require("../controllers/tweetController");
 
 userRouter.get("/home", authenticateUser, userController.index);
 
@@ -14,6 +15,8 @@ userRouter.post(
     failureFlash: true,
   }),
 );
+
+userRouter.post("/new-tweet", tweetController.storeTweet);
 
 userRouter.get("/:username", authenticateUser, userController.show);
 
