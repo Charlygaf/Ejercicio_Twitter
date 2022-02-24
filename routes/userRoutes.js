@@ -9,7 +9,7 @@ userRouter.post(
   "/login",
   passport.authenticate("local", {
     successReturnToOrRedirect: "/home",
-    failureRedirect: "/portal",
+    failureRedirect: "/",
     failureFlash: true,
   }),
 );
@@ -17,5 +17,7 @@ userRouter.post(
 userRouter.get("/:username", userController.show);
 
 userRouter.post("/:username", userController.following);
+
+userRouter.delete("/logout", userController.logout);
 
 module.exports = userRouter;

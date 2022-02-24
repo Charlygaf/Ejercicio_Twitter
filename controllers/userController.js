@@ -46,10 +46,20 @@ async function following(req, res) {
   }
 }
 
+async function logout(req, res) {
+  try {
+    req.logout();
+    res.redirect("/");
+  } catch (error) {
+    res.status(400);
+  }
+}
+
 module.exports = {
   index,
   show,
   create,
   store,
   following,
+  logout,
 };
