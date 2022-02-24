@@ -9,7 +9,13 @@ async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
   const users = await User.find({});
-  res.render("profile", { user, users });
+  const { userName } = User;
+  res.render("profile", { user, users, userName });
+}
+async function following(req, res) {
+  const follower = req.body;
+  const newfollower = await User.followers.push(follower);
+  console.log(User.followers);
 }
 
 async function store(req, res) {
@@ -33,12 +39,6 @@ async function create(req, res) {
     res.redirect("/");
     console.log("el usuario ya esta registrado");
   }
-}
-
-async function following(req, res) {
-  console.log(req.user);
-  console.log(req.body);
-  console.log(req.params);
 }
 
 async function logout(req, res) {
