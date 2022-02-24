@@ -2,8 +2,9 @@ const express = require("express");
 const userController = require("../controllers/userController");
 const userRouter = express.Router();
 const passport = require("passport");
+const authenticateUser = require("../middleware/authenticateUser");
 
-userRouter.get("/home", userController.index);
+userRouter.get("/home", authenticateUser, userController.index);
 
 userRouter.post(
   "/login",
@@ -14,9 +15,9 @@ userRouter.post(
   }),
 );
 
-userRouter.get("/:username", userController.show);
+userRouter.get("/:username", authenticateUser, userController.show);
 
-userRouter.post("/:username", userController.following);
+userRouter.post("/:username", authenticateUser, userController.following);
 
 userRouter.delete("/logout", userController.logout);
 

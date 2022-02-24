@@ -1,7 +1,7 @@
 <div class="px-3 py-2 border-bottom border-secondary">
   <div class="d-flex">
-    <a class="w-15" href="#"
-      ><img class="w-100 rounded-circle" src="/img/<%=user.photoProfile%> " alt="Photo"
+    <a class="w-15" href="/home"
+      ><img class="w-100 rounded-circle" src="/img/<%=currentUser.photoProfile%> " alt="Photo"
     /></a>
     <div class="ms-3 pt-1">
       <div>
@@ -10,7 +10,7 @@
           <span class="text-secondary">@username · </span></a
         >
         <a class="date-tweet text-secondary" href="#"
-          ><%=formatDate(new Date(user.createdAt), "d MMM'.' Y" ,{locale:es})%></a
+          ><%=formatDate(new Date(currentUser.createdAt), "d MMM'.' Y" ,{locale:es})%></a
         >
       </div>
       <!-- body tweet -->
