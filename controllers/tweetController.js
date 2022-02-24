@@ -1,11 +1,10 @@
 const Tweet = require("../schemas/Tweet");
 
 async function storeTweet(req, res) {
-  console.log("hola");
   try {
     await Tweet.create({
-      content: req.body.tweet,
-      user: req.user.userName,
+      content: req.body.content,
+      user: req.user._id,
     });
     res.redirect("/home");
   } catch (error) {

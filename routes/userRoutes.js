@@ -16,11 +16,11 @@ userRouter.post(
   }),
 );
 
+userRouter.post("/new-tweet", tweetController.storeTweet);
+
 userRouter.get("/:username", authenticateUser, userController.show);
 
 userRouter.post("/:username", authenticateUser, userController.following);
-
-userRouter.post("/new-tweet", tweetController.storeTweet);
 
 userRouter.delete("/logout", userController.logout);
 
