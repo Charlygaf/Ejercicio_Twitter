@@ -41,12 +41,13 @@
               <p class="text-secondary fs-5 fw-light">@<%=user.userName%></p>
               <% if (user.biography) { %>
               <p><%=user.biography%></p>
-              <% } %>
+              <% } %> <% if (user.birthDate) { %>
               <p class="text-secondary info-profile mb-0">
                 <img src="/img/balloon.svg" alt="Baloon" style="width: 0.9rem" /> Fecha de
                 nacimiento: <%=formatDate(new Date(user.birthDate), "dd 'de' MMMM 'de' Y"
                 ,{locale:es})%>
               </p>
+              <% } %>
               <p class="text-secondary info-profile mb-2">
                 <img src="/img/calendar.svg" alt="Baloon" style="width: 0.9rem" /> Se unió en
                 <%=formatDate(new Date(user.createdAt), "MMMM 'de' Y" ,{locale:es})%>
