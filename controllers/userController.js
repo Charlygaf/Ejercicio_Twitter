@@ -2,20 +2,16 @@ const User = require("../schemas/User");
 const Tweet = require("../schemas/Tweet");
 
 async function index(req, res) {
-  res.render("home");
+  const tweets = await Tweet.find().populate("user");
+  res.render("home", { tweets });
 }
 
 async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
-  const users = await User.find({});
-  const { userName } = User;
-  res.render("profile", { user, users, userName });
-}
-async function following(req, res) {
-  const follower = req.body;
-  const newfollower = await User.followers.push(follower);
-  console.log(User.followers);
+  const tweets = await Tweet.find().where({ user: user }).populate("user").limit(20);
+  const users = await User.find();
+  res.render("profile", { user, users, tweets });
 }
 
 async function store(req, res) {
