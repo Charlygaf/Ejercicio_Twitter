@@ -1,6 +1,5 @@
 const express = require("express");
 const userController = require("../controllers/userController");
-const publicController = require("../controllers/publicController");
 const userRouter = express.Router();
 const passport = require("passport");
 
@@ -14,9 +13,6 @@ userRouter.post(
     failureFlash: true,
   }),
 );
-
-userRouter.get("/registro", userController.create);
-userRouter.post("/registro", userController.store);
 
 userRouter.get("/:username", userController.show);
 
