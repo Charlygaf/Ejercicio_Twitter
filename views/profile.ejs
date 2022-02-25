@@ -40,12 +40,26 @@
             <div class="d-flex justify-content-end p-3 position-relative">
               <img
                 class="rounded-circle w-25 ph-profile"
-                src="/img/<%= user.photoProfile %> "
+                src="/img/<%=user.photoProfile%>"
                 alt="Photo Profile"
               />
+              <% if (currentUser.userName === user.userName) { %>
               <a class="btn btn-outline-default rounded-pill height-fit px-3" href="#edit-profile"
                 >Editar perfil</a
               >
+              <% } else if(user.followers.includes(currentUser.id)){%>
+              <form class="d-none d-lg-inline me-0" action="/unfollow?_method=DELETE" method="POST">
+                <input type="hidden" name="objectId" value="<%= user.id %>" />
+                <button type="submit" class="btn btn-light rounded-pill px-3">Siguiendo</button>
+              </form>
+              <%} else {%>
+              <form class="d-none d-lg-inline me-0" action="/follow" method="POST">
+                <input type="hidden" name="objectId" value="<%= user.id %>" />
+                <button type="submit" class="btn btn-outline-default rounded-pill px-3">
+                  Seguir
+                </button>
+              </form>
+              <%}%>
             </div>
             <div class="p-3">
               <h2 class="fs-4 mb-0"><%=user.firstname%> <%=user.lastname%></h2>

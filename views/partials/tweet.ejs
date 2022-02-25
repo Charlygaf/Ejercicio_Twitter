@@ -13,7 +13,8 @@
         <i class="fas fa-ellipsis-h"></i>
       </a>
       <div class="dropdown-menu bg-black tw-dropdown p-0" aria-labelledby="options-tw">
-        <form action="/delete" method="POST">
+        <form action="/delete-tweet?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="<%=tweet.id%>" />
           <button class="dropdown-item text-danger dropdown-options-tweet">
             <i class="fas fa-trash-alt me-3"></i>Eliminar
           </button>
@@ -37,11 +38,31 @@
       <!-- body tweet -->
       <div class="fw-lighter"><%=tweet.content%></div>
       <!-- footer tweet -->
-      <div class="mt-2 mb-0 mt-3">
-        <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-comment"></i></a>
-        <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-retweet"></i></a>
-        <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="far fa-heart"></i></a>
-        <a class="rounded-circle me-5 btn-action-tweet" href="#"><i class="fas fa-share"></i></a>
+      <div class="d-flex mb-0 mt-3">
+        <button class="rounded-circle me-5 btn-action-tweet comment" href="#">
+          <i class="far fa-comment"></i>
+        </button>
+        <button class="rounded-circle me-5 btn-action-tweet retweet" href="#">
+          <i class="fa-solid fa-repeat"></i>
+        </button>
+        <% if(!tweet.likes.includes(currentUser.id)){ %>
+        <form action="/like" method="post">
+          <input type="hidden" name="id" value="<%=tweet.id%>" />
+          <button class="rounded-circle me-5 btn-action-tweet like">
+            <i class="far fa-heart"></i>
+          </button>
+        </form>
+        <%} else {%>
+        <form action="/unlike?_method=DELETE" method="post">
+          <input type="hidden" name="id" value="<%=tweet.id%>" />
+          <button class="rounded-circle me-5 btn-action-tweet like isLike">
+            <i class="fas fa-heart"></i>
+          </button>
+        </form>
+        <%}%>
+        <button class="rounded-circle me-5 btn-action-tweet share" href="#">
+          <i class="fas fa-share"></i>
+        </button>
       </div>
     </div>
   </div>

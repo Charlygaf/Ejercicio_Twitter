@@ -3,7 +3,6 @@ const userController = require("../controllers/userController");
 const userRouter = express.Router();
 const passport = require("passport");
 const authenticateUser = require("../middleware/authenticateUser");
-const tweetController = require("../controllers/tweetController");
 
 userRouter.get("/home", authenticateUser, userController.index);
 
@@ -16,11 +15,11 @@ userRouter.post(
   }),
 );
 
-userRouter.post("/new-tweet", authenticateUser, tweetController.storeTweet);
-
 userRouter.get("/:username", authenticateUser, userController.show);
 
-userRouter.post("/following", authenticateUser, userController.following);
+userRouter.post("/follow", authenticateUser, userController.follow);
+
+userRouter.delete("/unfollow", authenticateUser, userController.unfollow);
 
 userRouter.delete("/logout", userController.logout);
 

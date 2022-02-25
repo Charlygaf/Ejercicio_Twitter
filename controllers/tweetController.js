@@ -1,7 +1,8 @@
+const { redirect } = require("express/lib/response");
 const Tweet = require("../schemas/Tweet");
 const User = require("../schemas/User");
 
-async function storeTweet(req, res) {
+async function store(req, res) {
   try {
     const tweet = await Tweet.create({
       content: req.body.content,
@@ -13,13 +14,37 @@ async function storeTweet(req, res) {
     console.log("ERROR:", error.message);
   }
 }
-async function deleteTweet(req, res) {
-  const { id } = req.params;
-  await User.findByIdAndRemove(id);
-  res.redirect("/home");
+async function destroy(req, res) {
+  const { id } = req.body;
+  await Tweet.findByIdAndRemove(id);
+  res.redirect("back");
+}
+
+async function like(req, res) {
+  const { id } = req.body;
+  await Tweet.findByIdAndUpdate(id, {
+    $push: { likes: req.user.id },
+  });
+  await User.findByIdAndUpdate(req.user.id, {
+    $push: { likes: id },
+  });
+  res.redirect("back");
+}
+
+async function unlike(req, res) {
+  const { id } = req.body;
+  await Tweet.findByIdAndUpdate(id, {
+    $pull: { likes: req.user.id },
+  });
+  await User.findByIdAndUpdate(req.user.id, {
+    $pull: { likes: id },
+  });
+  res.redirect("back");
 }
 
 module.exports = {
-  storeTweet,
-  deleteTweet,
+  store,
+  destroy,
+  like,
+  unlike,
 };

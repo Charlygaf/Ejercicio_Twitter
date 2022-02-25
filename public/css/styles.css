@@ -1,11 +1,16 @@
 :root {
   --main-color: #0061f2;
-  --bg-hover-soft: hsla(0, 0%, 50%, 0.205);
+  --main-color-opacity-negative: rgba(55, 135, 255, 0.2);
+  --bg-hover-soft: rgba(128, 128, 128, 0.205);
   --letter-color: white;
   --color-brightness-dropdown: rgba(255, 255, 255, 0.25);
   --color-dark: black;
   --color-nav-blur: rgba(0, 0, 0, 0.7);
   --border-main-color: rgba(133, 133, 133, 0.746);
+  --retweet-btn-color: rgb(0, 110, 0);
+  --retweet-btn-color-opacity-negative: rgba(0, 110, 0, 0.2);
+  --like-btn-color: rgb(255, 0, 0);
+  --like-btn-color-opacity-negative: rgba(255, 0, 0, 0.2);
 }
 
 .bg-black {
@@ -186,7 +191,29 @@ textarea {
 }
 
 .btn-action-tweet {
+  background-color: transparent;
+  border: 0;
   color: gray;
+}
+
+.comment:hover,
+.share:hover {
+  color: var(--main-color);
+  background-color: var(--main-color-opacity-negative);
+}
+
+.retweet:hover {
+  color: var(--retweet-btn-color);
+  background-color: var(--retweet-btn-color-opacity-negative);
+}
+
+.like:hover {
+  color: var(--like-btn-color);
+  background-color: var(--like-btn-color-opacity-negative);
+}
+
+.isLike {
+  color: var(--like-btn-color);
 }
 
 .bg-nav {

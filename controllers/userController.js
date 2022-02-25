@@ -13,7 +13,6 @@ async function show(req, res) {
   const user = await User.findOne({ userName: `${username}` });
   const tweets = await Tweet.find().where({ user: user }).populate("user").limit(20);
   const users = await User.find();
-
   res.render("profile", { user, users, tweets });
 }
 
@@ -35,14 +34,24 @@ async function create(req, res) {
   res.render("register");
 }
 
-async function following(req, res) {
-  const newFollow = await User.findByIdAndUpdate(req.user.id, {
+async function follow(req, res) {
+  await User.findByIdAndUpdate(req.user.id, {
     $push: { following: req.body.objectId },
   });
-
-  const newFollower = await User.findByIdAndUpdate(req.body.objectId, {
+  await User.findByIdAndUpdate(req.body.objectId, {
     $push: { followers: req.user.id },
   });
+  res.redirect("back");
+}
+
+async function unfollow(req, res) {
+  await User.findByIdAndUpdate(req.user.id, {
+    $pull: { following: req.body.objectId },
+  });
+  await User.findByIdAndUpdate(req.body.objectId, {
+    $pull: { followers: req.user.id },
+  });
+  res.redirect("back");
 }
 
 async function logout(req, res) {
@@ -58,7 +67,8 @@ module.exports = {
   index,
   show,
   create,
-  following,
+  follow,
+  unfollow,
   store,
   logout,
 };
