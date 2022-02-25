@@ -12,6 +12,7 @@ module.exports = async () => {
     const tweet = new Tweet({
       content: faker.lorem.paragraphs(2),
       user: user,
+      createdAt: faker.date.recent(),
     });
     user.tweets.push(tweet);
     user.save();

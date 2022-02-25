@@ -11,15 +11,17 @@ async function index(req, res) {
 async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
-  const tweets = await Tweet.find().where({ user: user }).populate("user").limit(20);
+  const tweets = await Tweet.find()
+    .where({ user: user })
+    .sort({ createdAt: "descending" })
+    .populate("user")
+    .limit(20);
 
   // Users sin usuario logeado ni followers actuales.
   const alreadyFollowing = user.following;
   const users = await User.find().where({ _id: { $ne: req.user.id }, alreadyFollowing });
 
   res.render("profile", { user, users, tweets });
-  console.log(user);
-  console.log(alreadyFollowing);
 }
 
 async function store(req, res) {

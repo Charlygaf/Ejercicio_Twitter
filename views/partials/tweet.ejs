@@ -39,30 +39,44 @@
       <div class="fw-lighter"><%=tweet.content%></div>
       <!-- footer tweet -->
       <div class="d-flex mb-0 mt-3">
-        <button class="rounded-circle me-5 btn-action-tweet comment" href="#">
-          <i class="far fa-comment"></i>
-        </button>
-        <button class="rounded-circle me-5 btn-action-tweet retweet" href="#">
-          <i class="fa-solid fa-repeat"></i>
-        </button>
+        <div class="me-5">
+          <button class="rounded-circle btn-action-tweet comment" href="#">
+            <i class="far fa-comment"></i>
+          </button>
+          <!-- <span>Contador de respuestas</span> -->
+        </div>
+        <div class="me-5">
+          <button class="rounded-circle btn-action-tweet retweet" href="#">
+            <i class="fa-solid fa-repeat"></i>
+          </button>
+          <!-- <span>Contador de retweets</span> -->
+        </div>
         <% if(!tweet.likes.includes(currentUser.id)){ %>
-        <form action="/like" method="post">
+        <form class="me-5" action="/like" method="post">
           <input type="hidden" name="id" value="<%=tweet.id%>" />
-          <button class="rounded-circle me-5 btn-action-tweet like">
+          <button class="rounded-circle btn-action-tweet like">
             <i class="far fa-heart"></i>
           </button>
+          <%if (tweet.likes.length>1){%>
+          <span><%=tweet.likes.length%></span>
+          <%}%>
         </form>
         <%} else {%>
-        <form action="/unlike?_method=DELETE" method="post">
+        <form class="me-5" action="/unlike?_method=DELETE" method="post">
           <input type="hidden" name="id" value="<%=tweet.id%>" />
-          <button class="rounded-circle me-5 btn-action-tweet like isLike">
+          <button class="rounded-circle btn-action-tweet like isLike">
             <i class="fas fa-heart"></i>
           </button>
+          <%if (tweet.likes.length>1){%>
+          <span><%=tweet.likes.length%></span>
+          <%}%>
         </form>
         <%}%>
-        <button class="rounded-circle me-5 btn-action-tweet share" href="#">
-          <i class="fas fa-share"></i>
-        </button>
+        <div class="me-5">
+          <button class="rounded-circle btn-action-tweet share" href="#">
+            <i class="fas fa-share"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
