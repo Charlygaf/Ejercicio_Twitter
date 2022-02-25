@@ -1,6 +1,6 @@
-var myModal = document.getElementById("tweet-modal");
-var myInput = document.getElementById("myInput");
-
-myModal.addEventListener("shown.bs.modal", function () {
-  myInput.focus();
+$(document).mousemove(function (event) {
+  $(".torch").css({
+    top: event.pageY,
+    left: event.pageX,
+  });
 });
