@@ -6,13 +6,12 @@ faker.locale = "es";
 
 module.exports = async () => {
   const tweets = [];
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < 5000; i++) {
     const random = faker.datatype.number({ min: 0, max: 3 });
     const user = await User.findOne().skip(random);
     const tweet = new Tweet({
       content: faker.lorem.paragraphs(2),
       user: user,
-      likes: Model.aggregate([{ $sample: { size: 1 } }]),
     });
     user.tweets.push(tweet);
     user.save();
