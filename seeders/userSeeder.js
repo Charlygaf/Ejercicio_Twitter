@@ -18,7 +18,7 @@ module.exports = async () => {
     },
   ];
 
-  for (let i = 0; i < 3000; i++) {
+  for (let i = 0; i < 200; i++) {
     users.push({
       firstname: faker.name.firstName(),
       lastname: faker.name.lastName(),

@@ -6,7 +6,7 @@ faker.locale = "es";
 
 module.exports = async () => {
   const tweets = [];
-  for (let i = 0; i < 5000; i++) {
+  for (let i = 0; i < 200; i++) {
     const random = faker.datatype.number({ min: 0, max: 3 });
     const user = await User.findOne().skip(random);
     const tweet = new Tweet({

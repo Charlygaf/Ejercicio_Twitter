@@ -10,12 +10,12 @@ module.exports = async () => {
     const random2 = faker.datatype.number({ min: 0, max: 10 });
     const tweet = await Tweet.findOne().skip(random1);
     const user = await User.findOne().skip(random2);
-    if (!tweet.likes.includes(user.id)) {
-      await Tweet.findByIdAndUpdate(tweet.id, {
-        $push: { likes: user.id },
+    if (!tweet.likes.includes(user)) {
+      await Tweet.findByIdAndUpdate(tweet, {
+        $push: { likes: user },
       });
-      await User.findByIdAndUpdate(user.id, {
-        $push: { likes: tweet.id },
+      await User.findByIdAndUpdate(user, {
+        $push: { likes: tweet },
       });
     }
   }
