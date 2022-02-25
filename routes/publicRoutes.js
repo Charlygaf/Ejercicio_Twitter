@@ -9,5 +9,4 @@ publicRouter.get("/", alreadyLogged, publicController.index);
 publicRouter.get("/registro", userController.create);
 publicRouter.post("/registro", userController.store);
 
-//publicRouter.get("/*", publicController.error404);
 module.exports = publicRouter;

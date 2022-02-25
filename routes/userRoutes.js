@@ -23,4 +23,6 @@ userRouter.delete("/unfollow", authenticateUser, userController.unfollow);
 
 userRouter.delete("/logout", userController.logout);
 
+userRouter.post("/edit-profile", userController.update);
+
 module.exports = userRouter;

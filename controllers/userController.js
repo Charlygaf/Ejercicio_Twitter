@@ -1,5 +1,6 @@
 const User = require("../schemas/User");
 const Tweet = require("../schemas/Tweet");
+const formidable = require("formidable");
 
 async function index(req, res) {
   const tweets = await Tweet.find().populate("user");
@@ -40,6 +41,34 @@ async function store(req, res) {
 
 async function create(req, res) {
   res.render("register");
+}
+
+async function update(req, res) {
+  /*   await User.findByIdAndUpdate(req.user.id, req.body);
+  res.redirect("back");
+ */
+  const form = formidable({
+    multiples: true,
+    uploadDir: `${__dirname}/../public/img`,
+    keepExtensions: true,
+  });
+  form.parse(req, async (err, fields, files) => {
+    /*     console.log(fields);
+    console.log(files); */
+    await User.findByIdAndUpdate(req.user.id, {
+      $set: {
+        firstname: fields.firstname,
+        lastname: fields.lastname,
+        userName: fields.userName,
+        email: fields.email,
+        photoProfile: files.photoProfile.newFilename,
+        photoCover: files.photoCover.newFilename,
+        birthDate: fields.birthDate,
+        password: fields.password,
+      },
+    });
+    res.redirect(`back`);
+  });
 }
 
 async function follow(req, res) {
@@ -88,6 +117,7 @@ async function logout(req, res) {
 module.exports = {
   index,
   show,
+  update,
   create,
   follow,
   unfollow,

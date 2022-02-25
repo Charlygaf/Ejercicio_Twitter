@@ -41,7 +41,7 @@
   text-decoration: none;
   color: var(--letter-color);
   /*  font-family: "PT Serif", serif; */
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .sidebar li {
@@ -108,7 +108,9 @@
   position: absolute;
   top: -100%;
   left: 1rem;
-  box-sizing: border-box;
+  /* //object-fit: cover; */
+  /* object-fit: fill; */
+  /*   object-fit: contain; */
 }
 .ph-friend-suggestions {
   border: 0.3rem solid var(--color-dark);
@@ -238,4 +240,9 @@ textarea {
 .btn-logout {
   position: absolute;
   bottom: 1%;
+}
+
+#button404 {
+  text-align: center;
+  color: white;
 }

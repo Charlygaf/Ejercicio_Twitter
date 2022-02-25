@@ -16,6 +16,9 @@
 
     <title></title>
   </head>
+
+  <%- include("partials/modal-edit") %>
+
   <body class="bg-black text-white">
     <div class="container">
       <div class="row">
@@ -39,14 +42,20 @@
             <div class="ph-cover" style="background-image: url(/img/<%=user.photoCover%>)"></div>
             <div class="d-flex justify-content-end p-3 position-relative">
               <img
-                class="rounded-circle w-25 ph-profile"
+                style="width: 8rem; height: 8rem; object-fit: cover"
+                class="rounded-circle ph-profile"
                 src="/img/<%=user.photoProfile%>"
                 alt="Photo Profile"
               />
               <% if (currentUser.userName === user.userName) { %>
-              <a class="btn btn-outline-default rounded-pill height-fit px-3" href="#edit-profile"
-                >Editar perfil</a
+              <button
+                type="button"
+                class="btn btn-outline-default rounded-pill height-fit px-3"
+                data-bs-toggle="modal"
+                data-bs-target="#editModal"
               >
+                Editar perfil
+              </button>
               <% } else if(user.followers.includes(currentUser.id)){%>
               <form class="d-none d-lg-inline me-0" action="/unfollow?_method=DELETE" method="POST">
                 <input type="hidden" name="objectId" value="<%= user.id %>" />
