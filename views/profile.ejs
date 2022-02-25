@@ -20,13 +20,13 @@
   <%- include("partials/modal-edit") %>
 
   <body class="bg-black text-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
+    <div class="my-container">
+      <div class="row m-0">
+        <div class="col-sm-3 p-0 d-flex justify-content-end action-col">
           <!-- LEFT SIDEBAR -->
           <%- include ("./partials/leftSidebar") %>
         </div>
-        <div class="col-5 border-horizon-main p-0">
+        <div class="col-sm-6 my-col-auto border-horizon-main p-0">
           <div class="ps-3 bg-nav sticky-top">
             <div class="d-flex justify-content-start align-items-center">
               <a class="text-decoration-none text-white me-3" href="/home"
@@ -103,7 +103,7 @@
           <!-- tweet -->
           <%-include("partials/tweet")%>
         </div>
-        <div class="col-3"><%- include ("partials/RightSidebar") %></div>
+        <div class="col-sm-3 info-col"><%- include ("partials/RightSidebar") %></div>
       </div>
     </div>
     <!-- Optional JavaScript; choose one of the two! -->

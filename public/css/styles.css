@@ -13,6 +13,11 @@
   --like-btn-color-opacity-negative: rgba(255, 0, 0, 0.2);
 }
 
+.my-container {
+  max-width: 1281px;
+  margin: auto;
+}
+
 .bg-black {
   background-color: var(--color-dark);
 }
@@ -32,7 +37,7 @@
 }
 
 .side-bar-icon {
-  width: 1rem;
+  width: 1.3rem;
   margin-bottom: 0.2rem;
   margin-right: 1rem;
 }
@@ -42,6 +47,21 @@
   color: var(--letter-color);
   /*  font-family: "PT Serif", serif; */
   font-size: 1.2rem;
+}
+
+.sidebar-text p {
+  display: inline;
+}
+
+.sidebar-btn {
+  text-decoration: none;
+  color: var(--letter-color);
+  /*  font-family: "PT Serif", serif; */
+  font-size: 1.5rem;
+}
+
+.sidebar-btn-icon {
+  display: none;
 }
 
 .sidebar li {
@@ -158,6 +178,14 @@
   width: 18rem;
 }
 
+.my-col-auto {
+  min-width: 600px;
+}
+
+.action-col {
+  min-width: 88px;
+}
+
 .link-profile-tweet {
   text-decoration: none;
   color: var(--letter-color);
@@ -178,6 +206,10 @@
 .date-tweet {
   text-decoration: none;
   font-size: 0.9rem;
+}
+
+.overflow-none {
+  overflow: hidden;
 }
 
 textarea {
@@ -245,4 +277,73 @@ textarea {
 #button404 {
   text-align: center;
   color: white;
+}
+
+/* Medias Querys */
+@media (max-width: 1281px) {
+  .my-container {
+    max-width: 1094px;
+    margin: auto;
+  }
+  /* SIDEBAR LEFT */
+  .sidebar li a .sidebar-text {
+    text-align: center;
+  }
+
+  .sidebar-text p {
+    display: none;
+  }
+
+  .side-bar-icon {
+    margin: 0;
+    width: 1.5rem;
+  }
+
+  .sidebar-btn {
+    text-decoration: none;
+    color: var(--letter-color);
+    /*  font-family: "PT Serif", serif; */
+    font-size: 1.5rem;
+  }
+
+  .sidebar-btn-icon {
+    display: block;
+  }
+
+  .sidebar-btn-text {
+    display: none;
+  }
+
+  .sidebar li {
+    list-style: none;
+    padding: 0.5rem;
+  }
+
+  .sidebar li:hover {
+    color: var(--letter-color);
+    background-color: var(--bg-hover-soft);
+    padding: 0.5rem;
+    border-radius: 2rem;
+  }
+
+  .sidebar li a:hover {
+    color: var(--letter-color);
+  }
+}
+
+@media (max-width: 987px) {
+  .my-container {
+    margin: auto;
+  }
+
+  .info-col {
+    display: none;
+    width: auto;
+  }
+}
+
+@media (max-width: 688px) {
+  .my-col-auto {
+    width: auto;
+  }
 }

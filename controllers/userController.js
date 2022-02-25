@@ -17,11 +17,7 @@ async function show(req, res) {
     .sort({ createdAt: "descending" })
     .populate("user")
     .limit(20);
-
-  // Users sin usuario logeado ni followers actuales.
-  const alreadyFollowing = user.following;
-  const users = await User.find().where({ _id: { $ne: req.user.id }, alreadyFollowing });
-
+  const users = await User.find().where({ _id: { $ne: req.user.id } });
   res.render("profile", { user, users, tweets });
 }
 

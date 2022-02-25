@@ -1,5 +1,5 @@
 <% for( const tweet of tweets ) { %>
-<div class="border-bottom-section position-relative">
+<div class="border-bottom-section position-relative" id="<%=tweet.id%>">
   <div class="d-flex p-3">
     <% if (currentUser.userName === tweet.user.userName) { %>
     <div class="dropstart btn-options-tweet">

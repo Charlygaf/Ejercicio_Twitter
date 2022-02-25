@@ -31,6 +31,7 @@ async function like(req, res) {
   await User.findByIdAndUpdate(req.user.id, {
     $push: { likes: id },
   });
+  console.log(req.baseUrl);
   res.redirect("back");
 }
 

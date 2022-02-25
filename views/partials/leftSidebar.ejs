@@ -1,100 +1,112 @@
-<div class="position-fixed height-all-views">
-  <section>
-    <ul class="sidebar">
+<div class="height-all-views position-fixed">
+  <div class="d-flex flex-column justify-content-between w-100 h-100 align-items-center pe-2">
+    <ul class="sidebar p-0">
       <li class="mt-2">
-        <a class="sidebar-text" href="#">
-          <img class="side-bar-icon d-inline" src="img/home.svg" alt="home" />
-          <p class="d-none d-lg-inline">Inicio</p></a
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/home.svg" alt="home" />
+            <p class="sidebar-btn-text">Inicio</p>
+          </div>
+        </a>
+      </li>
+      <li class="mt-2">
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/glass.svg" alt="search" />
+            <p class="sidebar-btn-text">Explorar</p>
+          </div>
+        </a>
+      </li>
+      <li class="mt-2">
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/bell.svg" alt="notifications" />
+            <p class="sidebar-btn-text">Notificaciones</p>
+          </div>
+        </a>
+      </li>
+      <li class="mt-2">
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/mail.svg" alt="message" />
+            <p class="sidebar-btn-text">Mensajes</p>
+          </div></a
         >
       </li>
       <li class="mt-2">
-        <a class="sidebar-text" href="#">
-          <img class="side-bar-icon d-inline" src="img/glass.svg" alt="search" />
-          <p class="d-none d-lg-inline">Explorar</p></a
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/pin.svg" alt="save" />
+            <p class="sidebar-btn-text">Guardados</p>
+          </div></a
         >
       </li>
       <li class="mt-2">
-        <a class="sidebar-text" href="#"
-          ><img class="side-bar-icon d-inline" src="img/bell.svg" alt="notifications" />
-          <p class="d-none d-lg-inline">Notificaciones</p></a
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/note.svg" alt="lists" />
+            <p class="sidebar-btn-text">Listas</p>
+          </div></a
         >
       </li>
       <li class="mt-2">
-        <a class="sidebar-text" href="#"
-          ><img class="side-bar-icon d-inline" src="img/mail.svg" alt="message" />
-          <p class="d-none d-lg-inline">Mensajes</p></a
+        <a class="sidebar-btn" href="/<%=currentUser.userName%>">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/user.svg" alt="profile" />
+            <p class="sidebar-btn-text">Perfil</p>
+          </div></a
         >
       </li>
       <li class="mt-2">
-        <a class="sidebar-text" href="#">
-          <img class="side-bar-icon d-inline" src="img/pin.svg" alt="save" />
-          <p class="d-none d-lg-inline">Guardados</p></a
-        >
-      </li>
-      <li class="mt-2">
-        <a class="sidebar-text" href="#">
-          <img class="side-bar-icon d-inline" src="img/note.svg" alt="lists" />
-          <p class="d-none d-lg-inline">Listas</p></a
-        >
-      </li>
-      <li class="mt-2">
-        <a class="sidebar-text" href="/<%=currentUser.userName%>">
-          <img class="side-bar-icon d-inline" src="img/user.svg" alt="profile" />
-          <p class="d-none d-lg-inline">Perfil</p></a
-        >
-      </li>
-      <li class="mt-2">
-        <a class="sidebar-text" href="#"
-          ><img class="side-bar-icon d-inline" src="img/more.svg" alt="more" />
-          <p class="d-none d-lg-inline">Más opciones</p>
+        <a class="sidebar-btn" href="#">
+          <div class="mb-2 sidebar-text">
+            <img class="side-bar-icon d-inline" src="img/more.svg" alt="more" />
+            <p class="sidebar-btn-text">Más opciones</p>
+          </div>
         </a>
       </li>
       <button
         id="button-tweet"
-        class="btn btn-primary rounded-pill mt-3 p-1 sidebar-text w-100 d-none d-lg-inline"
+        class="btn btn-primary rounded-pill mt-3 p-1 px-2 sidebar-btn w-100"
         data-bs-toggle="modal"
         data-bs-target="#staticBackdrop"
       >
-        <span class="d-none d-lg-inline">Twittear</span>
+        <span class="sidebar-btn-text">Twittear</span>
+        <span class="sidebar-btn-icon"><i class="fas fa-feather-alt"></i></span>
       </button>
     </ul>
-  </section>
-  <ul class="sidebar btn-logout">
-    <li class="px-2 py-2 rounded-pill">
-      <div class="dropup">
-        <a
-          class="text-decoration-none"
-          href="#"
-          id="btn-logout"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <div class="d-flex align-items-center">
-            <div class="w-15 me-2">
-              <img
-                style="width: 3rem; height: 3rem; object-fit: cover"
-                class="rounded-circle"
-                src="/img/<%=currentUser.photoProfile%> "
-                alt="Profile"
-              />
+    <ul class="sidebar p-0 mb-5">
+      <li class="p-2 rounded-pill">
+        <div class="dropup">
+          <a
+            class="text-decoration-none"
+            href="#"
+            id="btn-logout"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <div class="d-flex align-items-center">
+              <div class="w-15 rounded-circle overflow-none">
+                <img class="w-100" src="/img/<%=currentUser.photoProfile%> " alt="Profile" />
+              </div>
+              <div class="me-5 ms-2 sidebar-btn-text">
+                <h2 class="fs-5 mb-0 text-white"><%=currentUser.firstname%></h2>
+                <p class="text-secondary fs-5 fw-light m-0">@<%=currentUser.userName%></p>
+              </div>
+              <div class="sidebar-btn-text">
+                <i class="fas fa-ellipsis-h text-white"></i>
+              </div>
             </div>
-            <div class="me-5">
-              <h2 class="fs-5 mb-0 text-white"><%=currentUser.firstname%></h2>
-              <p class="text-secondary fs-5 fw-light m-0">@<%=currentUser.userName%></p>
-            </div>
-            <div class="p-2">
-              <i class="fas fa-ellipsis-h text-white"></i>
-            </div>
+          </a>
+          <div class="dropdown-menu bg-black tw-dropdown p-0" aria-labelledby="options-tw">
+            <form action="/logout?_method=DELETE" method="POST">
+              <button class="btn btn-outline-danger border-0 w-100" type="submit">
+                Cerrar sesión
+              </button>
+            </form>
           </div>
-        </a>
-        <div class="dropdown-menu bg-black tw-dropdown p-0" aria-labelledby="options-tw">
-          <form action="/logout?_method=DELETE" method="POST">
-            <button class="btn btn-outline-danger border-0 w-100" type="submit">
-              Cerrar sesión
-            </button>
-          </form>
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>

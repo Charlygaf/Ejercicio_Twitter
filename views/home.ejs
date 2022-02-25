@@ -19,17 +19,17 @@
   </head>
   <body class="bg-black text-white">
     <!-- NAVBAR -->
-    <div class="container">
-      <div class="row">
-        <div class="col-3">
+    <div class="my-container">
+      <div class="row m-0">
+        <div class="col-lg-3 ">
           <!-- LEFT SIDEBAR -->
           <%- include("partials/leftSidebar") %>
         </div>
-        <div class="col-5 border border-secondary border-top-0 border-bottom-0 p-0">
+        <div class="col-lg-6 col-md-6 border-horizon-main p-0">
           <div class="ps-3 py-2 bg-nav sticky-top">
                 <h1 class="fs-4">Home</h1>
           </div>
-          <div class="container border-bottom border-secondary g-0 pb-2">
+          <div class="border-horizon-main pb-2">
             <form action="/new-tweet" class="border-0 p-2">
               <textarea
                 class="bg-black text-white border-0"
@@ -55,7 +55,7 @@
         </div>
         
              <!-- Sidebar derecho -->
-        <div class="col-3"><%- include ("partials/RightSidebar") %></div>
+        <div class="col-md-3"><%- include ("partials/RightSidebar") %></div>
 
           
         
