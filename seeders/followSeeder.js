@@ -8,7 +8,7 @@ module.exports = async () => {
   for (let i = 0; i < 200; i++) {
     const random = faker.datatype.number({ min: 0, max: 20 });
     const follower = await User.findOne().skip(random);
-    /*     const foll = User.findOneAndUpdate({
+    /*     const fol = User.findOneAndUpdate({
       followers: follower,
     })
     ; */
