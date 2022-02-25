@@ -12,8 +12,14 @@ async function show(req, res) {
   const { username } = req.params;
   const user = await User.findOne({ userName: `${username}` });
   const tweets = await Tweet.find().where({ user: user }).populate("user").limit(20);
-  const users = await User.find();
+
+  // Users sin usuario logeado ni followers actuales.
+  const alreadyFollowing = user.following;
+  const users = await User.find().where({ _id: { $ne: req.user.id }, alreadyFollowing });
+
   res.render("profile", { user, users, tweets });
+  console.log(user);
+  console.log(alreadyFollowing);
 }
 
 async function store(req, res) {
@@ -37,9 +43,23 @@ async function create(req, res) {
 async function follow(req, res) {
   await User.findByIdAndUpdate(req.user.id, {
     $push: { following: req.body.objectId },
+    function(err, result) {
+      if (req.user.id === req.body.objectId) {
+        res.send(err);
+      } else {
+        res.send(result);
+      }
+    },
   });
   await User.findByIdAndUpdate(req.body.objectId, {
     $push: { followers: req.user.id },
+    function(err, result) {
+      if (req.user.id === req.body.objectId) {
+        res.send(err);
+      } else {
+        res.send(result);
+      }
+    },
   });
   res.redirect("back");
 }
