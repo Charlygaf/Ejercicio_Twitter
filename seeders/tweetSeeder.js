@@ -12,7 +12,6 @@ module.exports = async () => {
     const tweet = new Tweet({
       content: faker.lorem.paragraphs(2),
       user: user,
-      likes: Model.aggregate([{ $sample: { size: 1 } }]),
     });
     user.tweets.push(tweet);
     user.save();

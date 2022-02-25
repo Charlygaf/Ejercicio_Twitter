@@ -6,8 +6,8 @@ faker.locale = "es";
 module.exports = async () => {
   const users = [
     {
-      firstname: "Test",
-      lastname: "Prueba",
+      firstname: "Pepe",
+      lastname: "Ito",
       photoProfile: "defaultProfile.png",
       email: "a@a.com",
       photoCover: "defaultCoverProfile.png",
@@ -18,30 +18,30 @@ module.exports = async () => {
     },
   ];
 
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 200; i++) {
+    const firstname = faker.name.firstName();
+    const lastname = faker.name.lastName();
+    const username = [firstname, lastname];
+    const birth = faker.datatype.number({ min: 631159200666, max: 1166666666623 });
+    const number = faker.datatype.number({ min: 1, max: 99 });
+    const separator = [".", "-", "_"];
+    const userName =
+      username[Math.round(Math.random())] +
+      separator[Math.round(Math.random() * separator.length - 1)] +
+      number;
     users.push({
-      firstname: faker.name.firstName(),
-      lastname: faker.name.lastName(),
-      email: faker.internet.email(),
+      firstname: firstname,
+      lastname: lastname,
+      email: `${firstname}_${lastname}@gmail.com`,
       photoProfile: "defaultProfile.png",
       photoCover: "defaultCoverProfile.png",
-      birthDate: faker.date.past(),
+      birthDate: new Date(birth),
       password: "1234",
-      userName: faker.internet.userName(),
+      userName: userName.replace(" ", ""),
     });
   }
 
   await User.create(users);
-
-  for (let i = 0; i < 200; i++) {
-    const random = faker.datatype.number({ min: 0, max: 20 });
-    const follower = await User.findOne().skip(random);
-    /*     const fol = User.findOneAndUpdate({
-      followers: follower,
-    })
-    ; */
-    console.log(follower);
-  }
 
   console.log("[Database] Se corrió el seeder de Users.");
 };
