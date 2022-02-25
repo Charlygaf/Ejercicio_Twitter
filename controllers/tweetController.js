@@ -17,6 +17,9 @@ async function store(req, res) {
 async function destroy(req, res) {
   const { id } = req.body;
   await Tweet.findByIdAndRemove(id);
+  await User.findByIdAndUpdate(req.user.id, {
+    $pull: { tweets: id },
+  });
   res.redirect("back");
 }
 
